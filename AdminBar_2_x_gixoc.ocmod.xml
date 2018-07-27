@@ -2,7 +2,7 @@
 <modification>
     <name><![CDATA[GixOC.ru - <b>Admin Bar / Админ бар</b>]]></name>
     <code>GixOC_AdminBar</code>
-    <version>1.1</version>
+    <version>1.0.4</version>
     <author><![CDATA[<font color="#3399FF"><a href="https://gixoc.ru">GixOC.ru</font>]]></author>
     <link>https://gixoc.ru</link>
 	
@@ -11,16 +11,19 @@
 			<search><![CDATA[$data['cart'] = $this->load->controller('common/cart');]]></search>
 			<add position="after"><![CDATA[		if (isset($this->session->data['token'])) {
 			$data['token_admin'] = $this->session->data['token'];
-			if ($this->request->get['route'] == 'product/product') {
-				$data['quick_edit_admin'] = 'admin/index.php?route=catalog/product/edit&product_id=' . $this->request->get['product_id'] . '&token=' . $data['token_admin'];
-			} else if ($this->request->get['route'] == 'product/category') {
-				$path_parts = explode('_', $this->request->get['path']);
-				$data['quick_edit_admin'] = 'admin/index.php?route=catalog/category/edit&category_id=' . array_pop($path_parts) . '&token=' . $data['token_admin'];
-			} else if ($this->request->get['route'] == 'information/information') {
-				$data['quick_edit_admin'] = 'admin/index.php?route=catalog/information/edit&information_id=' . $this->request->get['information_id'] . '&token=' . $data['token_admin'];
-			} else if ($this->request->get['route'] == 'product/manufacturer/info') {
-				$data['quick_edit_admin'] = 'admin/index.php?route=catalog/manufacturer/edit&manufacturer_id=' . $this->request->get['manufacturer_id'] . '&token=' . $data['token_admin'];
-			} else {
+			
+			if (isset($this->request->get['route'])) {
+				if ($this->request->get['route'] == 'product/product') {
+					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/product/edit&product_id=' . $this->request->get['product_id'] . '&token=' . $data['token_admin'];
+				} else if ($this->request->get['route'] == 'product/category') {
+					$path_parts = explode('_', $this->request->get['path']);
+					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/category/edit&category_id=' . array_pop($path_parts) . '&token=' . $data['token_admin'];
+				} else if ($this->request->get['route'] == 'information/information') {
+					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/information/edit&information_id=' . $this->request->get['information_id'] . '&token=' . $data['token_admin'];
+				} else if ($this->request->get['route'] == 'product/manufacturer/info') {
+					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/manufacturer/edit&manufacturer_id=' . $this->request->get['manufacturer_id'] . '&token=' . $data['token_admin'];
+				}
+			}else {
 				$data['quick_edit_admin'] = '';
 			}
 
@@ -127,7 +130,7 @@ $_['text_gixoc_return']                         = 'Возвраты';]]></add>
                 	<li><a target="_blank" href="<?php echo $dashboard_admin; ?>"><div class="col-md-3 col-xs-1"><i class="fa fa-dashboard fw"></i></div><?php echo $text_gixoc_dashboard; ?></a></li>
 					<li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-plus fa-lg fa-fw"></i></div>  <?php echo $text_gixoc_add; ?><span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a target="_blank" href="<?php echo $dashboard_admin; ?>"><?php echo $text_gixoc_category; ?></a></li>
+							<li><a target="_blank" href="<?php echo $category_add_admin; ?>"><?php echo $text_gixoc_category; ?></a></li>
 							<li><a target="_blank" href="<?php echo $product_add_admin; ?>"><?php echo $text_gixoc_product; ?> </a></li>
 							<li><a target="_blank" href="<?php echo $filter_add_admin; ?>"><?php echo $text_gixoc_filter; ?></a></li>
 							<li><a target="_blank" href="<?php echo $attribute_add_admin; ?>"><?php echo $text_gixoc_attribute; ?></a></li>
