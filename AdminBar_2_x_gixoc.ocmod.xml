@@ -22,8 +22,10 @@
 					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/information/edit&information_id=' . $this->request->get['information_id'] . '&token=' . $data['token_admin'];
 				} else if ($this->request->get['route'] == 'product/manufacturer/info') {
 					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/manufacturer/edit&manufacturer_id=' . $this->request->get['manufacturer_id'] . '&token=' . $data['token_admin'];
+				} else {
+					$data['quick_edit_admin'] = '';
 				}
-			}else {
+			} else {
 				$data['quick_edit_admin'] = '';
 			}
 
