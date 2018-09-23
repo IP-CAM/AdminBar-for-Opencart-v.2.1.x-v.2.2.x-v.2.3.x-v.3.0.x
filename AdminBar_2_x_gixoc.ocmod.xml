@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
-    <name><![CDATA[GixOC.ru - <b>Admin Bar / Админ бар</b>]]></name>
-    <code>GixOC_AdminBar</code>
-    <version>1.0.5</version>
-    <author><![CDATA[<font color="#3399FF"><a href="https://gixoc.ru">GixOC.ru</font>]]></author>
-    <link>https://gixoc.ru</link>	
-    <file path="catalog/controller/common/header.php">
+	<name><![CDATA[GixOC.ru - <b>Admin Bar / Админ бар</b>]]></name>
+	<code>GixOC_AdminBar</code>
+	<version>1.0.5</version>
+	<author><![CDATA[<font color="#3399FF"><a href="https://gixoc.ru">GixOC.ru</font>]]></author>
+	<link>https://gixoc.ru</link>
+	<file path="catalog/controller/common/header.php">
 		<operation>
 			<search><![CDATA[$data['cart'] = $this->load->controller('common/cart');]]></search>
 			<add position="after"><![CDATA[
 		//GixOC.ru - Admin Bar
 		if (isset($this->session->data['token'])) {
 			$data['token_admin'] = $this->session->data['token'];
-			
+
 			if (isset($this->request->get['route'])) {
 				if ($this->request->get['route'] == 'product/product') {
 					$data['quick_edit_admin'] = 'admin/index.php?route=catalog/product/edit&product_id=' . $this->request->get['product_id'] . '&token=' . $data['token_admin'];
@@ -32,21 +32,21 @@
 
 			$data['dashboard_admin'] = 'admin/index.php?route=common/dashboard&token=' . $data['token_admin'];
 			$data['category_add_admin'] = 'admin/index.php?route=catalog/category/add&token=' . $data['token_admin'];
-			$data['product_add_admin'] = 'admin/index.php?route=catalog/product/add&token=' . $data['token_admin']; 
+			$data['product_add_admin'] = 'admin/index.php?route=catalog/product/add&token=' . $data['token_admin'];
 			$data['filter_add_admin'] = 'admin/index.php?route=catalog/filter/add&token=' . $data['token_admin']; 
-			$data['attribute_add_admin'] = 'admin/index.php?route=catalog/attribute/add&token=' . $data['token_admin']; 
-			$data['option_add_admin'] = 'admin/index.php?route=catalog/option/add&token=' . $data['token_admin']; 
-			$data['manufacturer_add_admin'] = 'admin/index.php?route=catalog/manufacturer/add&token=' . $data['token_admin']; 
-			$data['information_add_admin'] = 'admin/index.php?route=catalog/information/add&token=' . $data['token_admin']; 
-			
+			$data['attribute_add_admin'] = 'admin/index.php?route=catalog/attribute/add&token=' . $data['token_admin'];
+			$data['option_add_admin'] = 'admin/index.php?route=catalog/option/add&token=' . $data['token_admin'];
+			$data['manufacturer_add_admin'] = 'admin/index.php?route=catalog/manufacturer/add&token=' . $data['token_admin'];
+			$data['information_add_admin'] = 'admin/index.php?route=catalog/information/add&token=' . $data['token_admin'];
+
 			$data['category_all_admin'] = 'admin/index.php?route=catalog/category&token=' . $data['token_admin'];
 			$data['product_all_admin'] = 'admin/index.php?route=catalog/product&token=' . $data['token_admin']; 
 			$data['filter_all_admin'] = 'admin/index.php?route=catalog/filter&token=' . $data['token_admin']; 
-			$data['attribute_all_admin'] = 'admin/index.php?route=catalog/attribute&token=' . $data['token_admin']; 
+			$data['attribute_all_admin'] = 'admin/index.php?route=catalog/attribute&token=' . $data['token_admin'];
 			$data['option_all_admin'] = 'admin/index.php?route=catalog/option&token=' . $data['token_admin']; 
-			$data['manufacturer_all_admin'] = 'admin/index.php?route=catalog/manufacturer&token=' . $data['token_admin']; 
-			$data['review_all_admin'] = 'admin/index.php?route=catalog/review&token=' . $data['token_admin']; 
-			$data['information_all_admin'] = 'admin/index.php?route=catalog/information&token=' . $data['token_admin']; 
+			$data['manufacturer_all_admin'] = 'admin/index.php?route=catalog/manufacturer&token=' . $data['token_admin'];
+			$data['review_all_admin'] = 'admin/index.php?route=catalog/review&token=' . $data['token_admin'];
+			$data['information_all_admin'] = 'admin/index.php?route=catalog/information&token=' . $data['token_admin'];
 
 			$data['orders_pending_admin'] = 'admin/index.php?route=sale/order&token=' . $data['token_admin'] . '&filter_order_status=1';
 			$data['orders_processing_admin'] = 'admin/index.php?route=sale/order&token=' . $data['token_admin'] . '&filter_order_status=1';
@@ -79,36 +79,36 @@
 			$data['text_gixoc_orders_pending'] = $this->language->get('text_gixoc_orders_pending');
 			$data['text_gixoc_orders_processing'] = $this->language->get('text_gixoc_orders_processing');
 			$data['text_gixoc_orders_today'] = $this->language->get('text_gixoc_orders_today');
-			$data['text_gixoc_all_orders'] = $this->language->get('text_gixoc_all_orders');	
+			$data['text_gixoc_all_orders'] = $this->language->get('text_gixoc_all_orders');
 			$data['text_gixoc_return'] = $this->language->get('text_gixoc_return');
 			$data['text_gixoc_logout'] = $this->language->get('text_gixoc_logout');
 		}
 		//end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
-    <file path="catalog/language/{en-gb,english}/common/header.php">
+	<file path="catalog/language/{en-gb,english}/common/header.php">
 		<operation>
 			<search><![CDATA[?php]]></search>
 			<add position="after"><![CDATA[//GixOC.ru - Admin Bar
-$_['text_gixoc_dashboard']         				= 'Dashboard';
-$_['text_gixoc_edit']         	    			= 'Edit';
-$_['text_gixoc_add']          	            	= 'Add';
-$_['text_gixoc_category']          				= 'Category';
-$_['text_gixoc_product']          				= 'Product';
-$_['text_gixoc_filter']        					= 'Filter';
-$_['text_gixoc_attribute']        				= 'Attribute';
-$_['text_gixoc_option']        					= 'Option';
-$_['text_gixoc_manufacturer']          			= 'Manufacturer';
-$_['text_gixoc_information']          			= 'Information';
-$_['text_gixoc_catalog']          				= 'Catalog';
-$_['text_gixoc_categories']        				= 'Categories';
-$_['text_gixoc_products']          				= 'Products';
-$_['text_gixoc_filters']          				= 'Filters';
-$_['text_gixoc_attributes']        				= 'Attributes';
-$_['text_gixoc_options']       					= 'Options';
-$_['text_gixoc_manufacturers']        			= 'Manufacturers';
-$_['text_gixoc_review']        					= 'Review';
-$_['text_gixoc_informations']          			= 'Informations';
+$_['text_gixoc_dashboard']                      = 'Dashboard';
+$_['text_gixoc_edit']                           = 'Edit';
+$_['text_gixoc_add']                            = 'Add';
+$_['text_gixoc_category']                       = 'Category';
+$_['text_gixoc_product']                        = 'Product';
+$_['text_gixoc_filter']                         = 'Filter';
+$_['text_gixoc_attribute']                      = 'Attribute';
+$_['text_gixoc_option']                         = 'Option';
+$_['text_gixoc_manufacturer']                   = 'Manufacturer';
+$_['text_gixoc_information']                    = 'Information';
+$_['text_gixoc_catalog']                        = 'Catalog';
+$_['text_gixoc_categories']                     = 'Categories';
+$_['text_gixoc_products']                       = 'Products';
+$_['text_gixoc_filters']                        = 'Filters';
+$_['text_gixoc_attributes']                     = 'Attributes';
+$_['text_gixoc_options']                        = 'Options';
+$_['text_gixoc_manufacturers']                  = 'Manufacturers';
+$_['text_gixoc_review']                         = 'Review';
+$_['text_gixoc_informations']                   = 'Informations';
 $_['text_gixoc_sale']                           = 'Sale';
 $_['text_gixoc_orders_pending']                 = 'Orders pending';
 $_['text_gixoc_orders_processing']              = 'Orders processing';
@@ -119,29 +119,29 @@ $_['text_gixoc_logout']                         = 'Logout';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
-    <file path="catalog/language/{ru-ru,russian}/common/header.php">
+	<file path="catalog/language/{ru-ru,russian}/common/header.php">
 		<operation>
 			<search><![CDATA[?php]]></search>
 			<add position="after"><![CDATA[//GixOC.ru - Admin Bar
-$_['text_gixoc_dashboard']         				= 'Панель управления';
-$_['text_gixoc_edit']         	    			= 'Редактировать';
-$_['text_gixoc_add']          	            	= 'Добавить';
-$_['text_gixoc_category']          				= 'Категорию';
-$_['text_gixoc_product']          				= 'Товар';
-$_['text_gixoc_filter']        					= 'Фильтр';
-$_['text_gixoc_attribute']        				= 'Атрибут';
-$_['text_gixoc_option']        					= 'Опцию';
-$_['text_gixoc_manufacturer']          			= 'Производителя';
-$_['text_gixoc_information']          			= 'Статью';
-$_['text_gixoc_catalog']          				= 'Каталог';
-$_['text_gixoc_categories']        				= 'Категории';
-$_['text_gixoc_products']          				= 'Товары';
-$_['text_gixoc_filters']          				= 'Фильтры';
-$_['text_gixoc_attributes']        				= 'Атрибуты';
-$_['text_gixoc_options']       					= 'Опции';
-$_['text_gixoc_manufacturers']        			= 'Производители';
-$_['text_gixoc_review']        					= 'Отзывы';
-$_['text_gixoc_informations']          			= 'Статьи';
+$_['text_gixoc_dashboard']                      = 'Панель управления';
+$_['text_gixoc_edit']                           = 'Редактировать';
+$_['text_gixoc_add']                            = 'Добавить';
+$_['text_gixoc_category']                       = 'Категорию';
+$_['text_gixoc_product']                        = 'Товар';
+$_['text_gixoc_filter']                         = 'Фильтр';
+$_['text_gixoc_attribute']                      = 'Атрибут';
+$_['text_gixoc_option']                         = 'Опцию';
+$_['text_gixoc_manufacturer']                   = 'Производителя';
+$_['text_gixoc_information']                    = 'Статью';
+$_['text_gixoc_catalog']                        = 'Каталог';
+$_['text_gixoc_categories']                     = 'Категории';
+$_['text_gixoc_products']                       = 'Товары';
+$_['text_gixoc_filters']                        = 'Фильтры';
+$_['text_gixoc_attributes']                     = 'Атрибуты';
+$_['text_gixoc_options']                        = 'Опции';
+$_['text_gixoc_manufacturers']                  = 'Производители';
+$_['text_gixoc_review']                         = 'Отзывы';
+$_['text_gixoc_informations']                   = 'Статьи';
 $_['text_gixoc_sale']                           = 'Продажи';
 $_['text_gixoc_orders_pending']                 = 'Заказы в ожидании';
 $_['text_gixoc_orders_processing']              = 'Заказы в обработке';
@@ -152,66 +152,66 @@ $_['text_gixoc_logout']                         = 'Выход';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
-    <file path="catalog/view/theme/*/template/common/header.tpl">
+	<file path="catalog/view/theme/*/template/common/header.tpl">
 		<operation>
 			<search><![CDATA[<body]]></search>
-			<add position="after"><![CDATA[		<?php if (isset($token_admin)) { ?>
-		<nav class="navbar navbar-default navbar-fixed-top">
+			<add position="after"><![CDATA[          <?php if (isset($token_admin)) { ?>
+          <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>            
                     <span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>   
                 </button>
-				<a class="navbar-brand" target="_blank" href="https://gixoc.ru">GixOC.ru</a>
+                <a class="navbar-brand" target="_blank" href="https://gixoc.ru">GixOC.ru</a>
             </div>
-			<div class="navbar-collapse collapse" id="collapse" aria-expanded="false">
-            	<ul class="nav nav-pills" style="padding-top: 5px;">
-                	<li><a target="_blank" href="<?php echo $dashboard_admin; ?>"><div class="col-md-3 col-xs-1"><i class="fa fa-dashboard fw"></i></div><?php echo $text_gixoc_dashboard; ?></a></li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-plus fa-lg fa-fw"></i></div>  <?php echo $text_gixoc_add; ?><span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a target="_blank" href="<?php echo $category_add_admin; ?>"><?php echo $text_gixoc_category; ?></a></li>
-							<li><a target="_blank" href="<?php echo $product_add_admin; ?>"><?php echo $text_gixoc_product; ?> </a></li>
-							<li><a target="_blank" href="<?php echo $filter_add_admin; ?>"><?php echo $text_gixoc_filter; ?></a></li>
-							<li><a target="_blank" href="<?php echo $attribute_add_admin; ?>"><?php echo $text_gixoc_attribute; ?></a></li>
-							<li><a target="_blank" href="<?php echo $option_add_admin; ?>"><?php echo $text_gixoc_option; ?></a></li>
-							<li><a target="_blank" href="<?php echo $manufacturer_add_admin; ?>"><?php echo $text_gixoc_manufacturer; ?> </a></li>
-							<li><a target="_blank" href="<?php echo $information_add_admin; ?>"><?php echo $text_gixoc_information; ?> </a></li>
-                        </ul>
-					</li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-tags fw"></i></div>  <?php echo $text_gixoc_catalog; ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a target="_blank" href="<?php echo $category_all_admin; ?>"><?php echo $text_gixoc_categories; ?> </a></li>
-							<li><a target="_blank" href="<?php echo $product_all_admin; ?>"><?php echo $text_gixoc_products; ?></a></li>
-							<li><a target="_blank" href="<?php echo $filter_all_admin; ?>"><?php echo $text_gixoc_filters; ?></a></li>
-							<li><a target="_blank" href="<?php echo $attribute_all_admin; ?>"><?php echo $text_gixoc_attributes; ?></a></li>
-							<li><a target="_blank" href="<?php echo $option_all_admin; ?>"><?php echo $text_gixoc_options; ?></a></li>
-							<li><a target="_blank" href="<?php echo $manufacturer_all_admin; ?>"><?php echo $text_gixoc_manufacturers; ?></a></li>						
-							<li><a target="_blank" href="<?php echo $review_all_admin; ?>"><?php echo $text_gixoc_review; ?></a></li>
-							<li><a target="_blank" href="<?php echo $information_all_admin; ?>"><?php echo $text_gixoc_informations; ?></a></li>
-                        </ul>
-					</li>
-					<li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-cart-plus fa-lg fa-fw"></i></div>  <?php echo $text_gixoc_sale; ?><span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a target="_blank" href="<?php echo $orders_pending_admin; ?>"><?php echo $text_gixoc_orders_pending; ?></a></li>
-							<li><a target="_blank" href="<?php echo $orders_processing_admin; ?>"><?php echo $text_gixoc_orders_processing; ?></a></li>
-							<li><a target="_blank" href="<?php echo $orders_orders_today; ?>"><?php echo $text_gixoc_orders_today; ?></a></li>
-							<li><a target="_blank" href="<?php echo $all_orders_admin; ?>"><?php echo $text_gixoc_all_orders; ?></a></li>
-							<li><a target="_blank" href="<?php echo $return_admin; ?>"><?php echo $text_gixoc_return; ?></a></li>
-                        </ul>
-					</li>
-					<?php if ($quick_edit_admin <> "") { ?>
-					<li><a target="_blank" href="<?php echo $quick_edit_admin; ?>"><i class="fa fa-pencil"></i> <?php echo $text_gixoc_edit; ?> </a></li>
-					<?php } ?>
-					<ul class="nav pull-right" style="padding-right: 4px;">
-						<li><a href="<?php echo $gixoc_logout; ?>"><span class="hidden-xs hidden-sm hidden-md"><?php echo $text_gixoc_logout; ?></span> <i class="fa fa-sign-out fa-lg"></i></a></li>
-					</ul>					
+            <div class="navbar-collapse collapse" id="collapse" aria-expanded="false">
+                <ul class="nav nav-pills" style="padding-top: 5px;">
+                    <li><a target="_blank" href="<?php echo $dashboard_admin; ?>"><div class="col-md-3 col-xs-1"><i class="fa fa-dashboard fw"></i></div><?php echo $text_gixoc_dashboard; ?></a></li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-plus fa-lg fa-fw"></i></div>  <?php echo $text_gixoc_add; ?><span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a target="_blank" href="<?php echo $category_add_admin; ?>"><?php echo $text_gixoc_category; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $product_add_admin; ?>"><?php echo $text_gixoc_product; ?> </a></li>
+                        <li><a target="_blank" href="<?php echo $filter_add_admin; ?>"><?php echo $text_gixoc_filter; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $attribute_add_admin; ?>"><?php echo $text_gixoc_attribute; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $option_add_admin; ?>"><?php echo $text_gixoc_option; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $manufacturer_add_admin; ?>"><?php echo $text_gixoc_manufacturer; ?> </a></li>
+                        <li><a target="_blank" href="<?php echo $information_add_admin; ?>"><?php echo $text_gixoc_information; ?> </a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-tags fw"></i></div> <?php echo $text_gixoc_catalog; ?> <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a target="_blank" href="<?php echo $category_all_admin; ?>"><?php echo $text_gixoc_categories; ?> </a></li>
+                        <li><a target="_blank" href="<?php echo $product_all_admin; ?>"><?php echo $text_gixoc_products; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $filter_all_admin; ?>"><?php echo $text_gixoc_filters; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $attribute_all_admin; ?>"><?php echo $text_gixoc_attributes; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $option_all_admin; ?>"><?php echo $text_gixoc_options; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $manufacturer_all_admin; ?>"><?php echo $text_gixoc_manufacturers; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $review_all_admin; ?>"><?php echo $text_gixoc_review; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $information_all_admin; ?>"><?php echo $text_gixoc_informations; ?></a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"><div class="col-md-4 col-xs-1"><i class="fa fa-cart-plus fa-lg fa-fw"></i></div>  <?php echo $text_gixoc_sale; ?><span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a target="_blank" href="<?php echo $orders_pending_admin; ?>"><?php echo $text_gixoc_orders_pending; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $orders_processing_admin; ?>"><?php echo $text_gixoc_orders_processing; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $orders_orders_today; ?>"><?php echo $text_gixoc_orders_today; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $all_orders_admin; ?>"><?php echo $text_gixoc_all_orders; ?></a></li>
+                        <li><a target="_blank" href="<?php echo $return_admin; ?>"><?php echo $text_gixoc_return; ?></a></li>
+                      </ul>
+                    </li>
+                    <?php if ($quick_edit_admin <> "") { ?>
+                    <li><a target="_blank" href="<?php echo $quick_edit_admin; ?>"><i class="fa fa-pencil"></i> <?php echo $text_gixoc_edit; ?> </a></li>
+                    <?php } ?>
+                    <ul class="nav pull-right" style="padding-right: 4px;">
+                      <li><a href="<?php echo $gixoc_logout; ?>"><span class="hidden-xs hidden-sm hidden-md"><?php echo $text_gixoc_logout; ?></span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                    </ul>
                 </ul>
             </div>
         </nav>
-		<div style="height: 50px;"></div>
-	<?php } ?>]]></add>
+        <div style="height: 50px;"></div>
+    <?php } ?>]]></add>
 		</operation>
 	</file>
 </modification>
