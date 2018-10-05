@@ -2,7 +2,7 @@
 <modification>
 	<name><![CDATA[GixOC.ru - <b>Admin Bar / Админ бар</b>]]></name>
 	<code>GixOC_AdminBar</code>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<author><![CDATA[<font color="#3399FF"><a href="https://gixoc.ru">GixOC.ru</font>]]></author>
 	<link>https://gixoc.ru</link>
 	<file path="catalog/controller/common/header.php">
@@ -55,33 +55,6 @@
 			$data['return_admin'] = 'admin/index.php?route=sale/return&user_token=' . $data['token_admin'];
 
 			$data['gixoc_logout'] = 'admin/index.php?route=common/logout&user_token=' . $data['token_admin'];
-
-			$data['text_gixoc_edit'] = $this->language->get('text_gixoc_edit');
-			$data['text_gixoc_dashboard'] = $this->language->get('text_gixoc_dashboard');
-			$data['text_gixoc_add'] = $this->language->get('text_gixoc_add');
-			$data['text_gixoc_category'] = $this->language->get('text_gixoc_category');
-			$data['text_gixoc_product'] = $this->language->get('text_gixoc_product');
-			$data['text_gixoc_filter'] = $this->language->get('text_gixoc_filter');
-			$data['text_gixoc_attribute'] = $this->language->get('text_gixoc_attribute');
-			$data['text_gixoc_option'] = $this->language->get('text_gixoc_option');
-			$data['text_gixoc_manufacturer'] = $this->language->get('text_gixoc_manufacturer');
-			$data['text_gixoc_information'] = $this->language->get('text_gixoc_information');
-			$data['text_gixoc_catalog'] = $this->language->get('text_gixoc_catalog');
-			$data['text_gixoc_categories'] = $this->language->get('text_gixoc_categories');
-			$data['text_gixoc_products'] = $this->language->get('text_gixoc_products');
-			$data['text_gixoc_filters'] = $this->language->get('text_gixoc_filters');
-			$data['text_gixoc_attributes'] = $this->language->get('text_gixoc_attributes');
-			$data['text_gixoc_options'] = $this->language->get('text_gixoc_options');
-			$data['text_gixoc_manufacturers'] = $this->language->get('text_gixoc_manufacturers');
-			$data['text_gixoc_review'] = $this->language->get('text_gixoc_review');
-			$data['text_gixoc_informations'] = $this->language->get('text_gixoc_informations');
-			$data['text_gixoc_sale'] = $this->language->get('text_gixoc_sale');
-			$data['text_gixoc_orders_pending'] = $this->language->get('text_gixoc_orders_pending');
-			$data['text_gixoc_orders_processing'] = $this->language->get('text_gixoc_orders_processing');
-			$data['text_gixoc_orders_today'] = $this->language->get('text_gixoc_orders_today');
-			$data['text_gixoc_all_orders'] = $this->language->get('text_gixoc_all_orders');	
-			$data['text_gixoc_return'] = $this->language->get('text_gixoc_return');
-			$data['text_gixoc_logout'] = $this->language->get('text_gixoc_logout');
 		}
 		//end GixOC.ru - Admin Bar]]></add>
 		</operation>
@@ -116,6 +89,7 @@ $_['text_gixoc_orders_today']                   = 'Orders today';
 $_['text_gixoc_all_orders']                     = 'All orders';
 $_['text_gixoc_return']                         = 'Return';
 $_['text_gixoc_logout']                         = 'Logout';
+$_['text_gixoc_collapse']                       = 'Admin Bar';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
@@ -149,14 +123,17 @@ $_['text_gixoc_orders_today']                   = 'Заказы сегодня';
 $_['text_gixoc_all_orders']                     = 'Все заказы';
 $_['text_gixoc_return']                         = 'Возвраты';
 $_['text_gixoc_logout']                         = 'Выход';
+$_['text_gixoc_collapse']                       = 'Админ Бар';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
 	<file path="catalog/view/theme/*/template/common/header.twig">
 		<operation>
 			<search><![CDATA[<body]]></search>
-			<add position="after"><![CDATA[        {% if token_admin %}
-        <nav class="navbar navbar-default navbar-fixed-top">
+			<add position="after"><![CDATA[{% if token_admin %}
+<div class="navbar-fixed-top">
+    <div class="collapse" id="adminbar">
+        <nav class="navbar navbar-default" style="margin: 0px;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -210,8 +187,12 @@ $_['text_gixoc_logout']                         = 'Выход';
                 </ul>
             </div>
         </nav>
-        <div style="height: 50px;"></div>
-    {% endif %}]]></add>
+    </div>
+    <button class="btn-x btn-primary" type="button" data-toggle="collapse" data-target="#adminbar" aria-expanded="false" aria-controls="adminbar">
+        {{ text_gixoc_collapse }}
+    </button>
+</div>
+{% endif %}]]></add>
 		</operation>
 	</file>
 </modification>
