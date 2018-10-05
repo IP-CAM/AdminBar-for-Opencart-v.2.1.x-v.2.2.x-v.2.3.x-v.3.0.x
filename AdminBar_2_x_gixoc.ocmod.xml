@@ -2,7 +2,7 @@
 <modification>
 	<name><![CDATA[GixOC.ru - <b>Admin Bar / Админ бар</b>]]></name>
 	<code>GixOC_AdminBar</code>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<author><![CDATA[<font color="#3399FF"><a href="https://gixoc.ru">GixOC.ru</font>]]></author>
 	<link>https://gixoc.ru</link>
 	<file path="catalog/controller/common/header.php">
@@ -82,6 +82,7 @@
 			$data['text_gixoc_all_orders'] = $this->language->get('text_gixoc_all_orders');
 			$data['text_gixoc_return'] = $this->language->get('text_gixoc_return');
 			$data['text_gixoc_logout'] = $this->language->get('text_gixoc_logout');
+			$data['text_gixoc_collapse'] = $this->language->get('text_gixoc_collapse');
 		}
 		//end GixOC.ru - Admin Bar]]></add>
 		</operation>
@@ -116,6 +117,7 @@ $_['text_gixoc_orders_today']                   = 'Orders today';
 $_['text_gixoc_all_orders']                     = 'All orders';
 $_['text_gixoc_return']                         = 'Return';
 $_['text_gixoc_logout']                         = 'Logout';
+$_['text_gixoc_collapse']                       = 'Admin Bar';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
@@ -149,17 +151,20 @@ $_['text_gixoc_orders_today']                   = 'Заказы сегодня';
 $_['text_gixoc_all_orders']                     = 'Все заказы';
 $_['text_gixoc_return']                         = 'Возвраты';
 $_['text_gixoc_logout']                         = 'Выход';
+$_['text_gixoc_collapse']                       = 'Админ Бар';
 //end GixOC.ru - Admin Bar]]></add>
 		</operation>
 	</file>
 	<file path="catalog/view/theme/*/template/common/header.tpl">
 		<operation>
 			<search><![CDATA[<body]]></search>
-			<add position="after"><![CDATA[          <?php if (isset($token_admin)) { ?>
-          <nav class="navbar navbar-default navbar-fixed-top">
+			<add position="after"><![CDATA[<?php if (isset($token_admin)) { ?>
+<div class="navbar-fixed-top">
+    <div class="collapse" id="adminbar">
+        <nav class="navbar navbar-default" style="margin: 0px;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>            
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>   
@@ -210,8 +215,12 @@ $_['text_gixoc_logout']                         = 'Выход';
                 </ul>
             </div>
         </nav>
-        <div style="height: 50px;"></div>
-    <?php } ?>]]></add>
+    </div>
+    <button class="btn-x btn-primary" type="button" data-toggle="collapse" data-target="#adminbar" aria-expanded="false" aria-controls="adminbar">
+        <?php echo $text_gixoc_collapse; ?>
+    </button>
+</div>
+<?php } ?>]]></add>
 		</operation>
 	</file>
 </modification>
