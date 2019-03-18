@@ -1,25 +1,19 @@
-# Admin Bar - Админ бар для OpenCart (OcStore)
+# Admin Bar - OpenCart (OcStore)
 
-Добавляет админ бар в витриной части магазина на OpenCart (OcStore), для быстрого доступа к разделам админки.
+Adds an admin bar in the storefront of the store on OpenCart (OcStore), for quick access to admin sections.
 
-1) Быстрый доступ в Панель управления.
+     Quick access to the control panel.
 
-2) Быстрый доступ на добавление товара, категории, опции и тд
+     Quick access to add products, categories, options, etc.
 
-3) Быстрый доступ в разделы каталога: товары, категории, статьи и тд
+     Quick access to the catalog sections: products, categories, articles, etc.
 
-4) Быстрый доступ к заказам: заказы сегодня, заказы в обработке, заказы в ожидании и возвраты.
+     Quick access to orders: orders today, orders being processed, orders pending and returns.
 
-5) Быстрый переход на редактирования товара (категории, статьи и тд)
+     Quick transition to product editing (categories, articles, etc.)
+ Distributed: "as is" (as is).
 
- 
-
-Распространяется: «как есть» (as is).
-
-Язык: русский, английский
-
-Версия Opencart (OcStore): 3.0.x, 2.3.х, 2.1.х, 2.2.х
-
-Установка: через встроенный Ocmod
-
-Протестирован на стандартной теме, не гарантируется корректное отображение на других темах.
+ Language: Russian, English
+ Opencart (OcStore) version: 3.0.x, 2.3.x, 2.1.x, 2.2.x
+ Installation: through the built-in Ocmod
+ Tested on a standard theme; correct display on other topics is not guaranteed.
